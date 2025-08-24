@@ -43,6 +43,27 @@ dados = [
     ("Ana2", "ana2@gmail.com")
 ]
     
+    
+def consulta_cliente(cursor, id):
+    cursor.row_factory = sqlite3.Row
+    cursor.execute("SELECT * FROM clientes WHERE id=?", (id,))
+    return cursor.fetchone()
+
+def listar_clientes(cursor):  
+    return cursor.execute("SELECT * FROM clientes ORDER BY id DESC;")
+
+
+
+# clientes = listar_clientes(cursor)
+# for cliente in clientes:
+#     print(cliente)
+    
+
+
+cliente = consulta_cliente(cursor, 2)
+print(dict(cliente))
+print(cliente["id"], cliente["nome"], cliente["email"])
+
 # atualizar_registro(conexao, cursor, 'Ana Atual', 'ana.a@gmail.com', 1)
 # excluir_registro(conexao, cursor, 1)
-inserir_muitos(conexao, cursor, dados)
+# inserir_muitos(conexao, cursor, dados)
