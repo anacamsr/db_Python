@@ -13,10 +13,10 @@ try:
         "INSERT INTO clientes (nome, email) VALUES (?, ?)",
         ("Teste 3", "teste3@gmail.com")
     )
-    cursor.execute(
-        "INSERT INTO clientes (id, nome, email) VALUES (?, ?, ?)",
-        (2, "Teste 4", "teste3@gmail.com")
-    )
+    # cursor.execute(
+    #     "INSERT INTO clientes (id, nome, email) VALUES (?, ?, ?)",
+    #     (2, "Teste 4", "teste3@gmail.com")
+    # )
     cursor.execute(
         "DELETE FROM clientes WHERE id = 3",
     )
